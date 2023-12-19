@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>HOME PAGE</title>
+</head>
+<body>
+    <video autoplay loop muted plays-inline class="background-video">
+        <source src="video.mp4" type="Video/mp4">
+    </video>
+    <div class="content">
+        <h1>REMEDI</h1>   
+        <form id="searchForm" action="#" method="GET" class="search">
+            <input type="text" id="searchInput" name="query" placeholder="Search...">
+            <button type="submit" class="search__button"></button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('searchForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            var query = document.getElementById('searchInput').value;
+            var pageMappings = {
+                'Cholera': 'cholera.html',
+                'Alzheimer': 'alzheimer.html',
+                'Tuberculosis': 'tuberculosis.html',
+                'Polio': 'polio.html',
+                'Marasmus': 'marasmus.html',
+                'Emphysema': 'emphysema.html'
+            };
+            if (query && pageMappings[query]) 
+            {
+                window.location.href = pageMappings[query];
+            } else 
+            {
+                alert('Page not found.');
+            }
+        });
+    </script>
+</body>
+</html>
